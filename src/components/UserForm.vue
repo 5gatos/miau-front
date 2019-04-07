@@ -74,7 +74,7 @@
     <v-layout row justify-space-between>
       <v-form ref="form" lazy-validation>
         <v-layout row>
-          <v-btn color="indigo" class="white--text" :disabled="!validForm()" @click="updateData">
+          <v-btn color="indigo" class="white--text" :disabled="!validForm()" @click="updateData" v-if="state < 3">
             <template v-if="state === 0">
               CARGAR PUNTOS DE REFERENCIA
             </template>
@@ -142,6 +142,8 @@ export default {
         this.$emit('stateCompleted', { state: 0 })
       } else if (this.state === 1) {
         this.$emit('stateCompleted', { state: 1 })
+      } else {
+        this.$emit('stateCompleted', { state: 2 })
       }
     }
   },

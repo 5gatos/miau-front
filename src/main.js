@@ -6,7 +6,12 @@ import {
 } from 'leaflet'
 import ChartJs from 'chart.js'
 import VueChartJs from 'vue-chartjs'
+import VueToastr2 from 'vue-toastr-2'
+import 'vue-toastr-2/dist/vue-toastr-2.min.css'
 
+window.toastr = require('toastr')
+
+Vue.use(VueToastr2)
 Vue.use(Vuetify)
 Vue.use(VueRouter)
 Vue.use(VueChartJs)

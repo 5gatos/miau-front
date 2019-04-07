@@ -67,6 +67,18 @@ export default {
             url: 'http://joorge.com/HackTheRisk/image.png',
             bounds: [window.L.latLng(4.6100525, -74.0756183), window.L.latLng(4.5861576, -74.0586516)]
           })
+      } else if(this.state === 3) {
+        this.$toastr.info('Generando resultados...', {
+          timeout: 5000
+        })
+
+        let time = Math.round((3000 + (Math.random() * 2000)))
+        setTimeout(() => {
+          this.$toastr.clear()
+          this.$toastr.success('La información ha sido generada correctamente', 'Información generada', {
+            timeout: 8000
+          })
+        }, time)
       }
     },
     clearData: function() {
@@ -79,6 +91,7 @@ export default {
 
         return point
       })
+      this.images = []
 
       this.$refs.map.clearMap()
     }
@@ -88,5 +101,7 @@ export default {
 </script>
 
 <style>
-
+#toast-container > div {
+  opacity: 1 !important;
+}
 </style>
